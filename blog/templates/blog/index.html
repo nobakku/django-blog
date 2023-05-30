@@ -5,6 +5,10 @@
   <div class="col-md-8">
     {% for post in post_data %}
     <div class="card mb-4">
+      {% comment %} 画像があるときのみヘッダー画像を表示(ないと画像がない投稿はエラー) {% endcomment %}
+      {% if post.image %}
+        <img src="{{ post.image.url }}" alt="" class='card-img-top index-img'>
+      {% endif %}
       <div class="card-body">
         <h2 class="card-title">{{ post.title }}</h2>
         <p class="card-text">{{ post.content|truncatechars:100 }}</p>
