@@ -68,3 +68,14 @@
   width: 100%;
   height: 400px;
 }
+
+
+/* カテゴリ機能 */
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: orange;
+}

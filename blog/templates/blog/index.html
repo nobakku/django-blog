@@ -10,7 +10,7 @@
         <img src="{{ post.image.url }}" alt="" class='card-img-top index-img'>
       {% endif %}
       <div class="card-body">
-        <h2 class="card-title">{{ post.title }}</h2>
+        <h2 class="card-title">{{ post.title }} <span class="small"> - {{ post.category }}</span></h2>
         <p class="card-text">{{ post.content|truncatechars:100 }}</p>
         <div class="btn btn-warning">詳細</div>
       </div>
@@ -25,15 +25,35 @@
 
   <div class="col-md-4">
     <div class="card">
-      <h5 class="card-header">このチュートリアルについて</h5>
+      <h5 class="card-header">このブログについて</h5>
       <div class="card-body">
         <p>ステップ1</p>
         <p class="mb-0">
-          初めてDjangoを触る方向けのチュートリアルです。
-          最小限の機能を構築してDjangoを学習しましょう。
+          GitHub Flowを用いて開発を行い､機能を追加していきます｡
+          同時にDjangoの使い方もマスターしながら最小限の機能を実装します｡
         </p>
       </div>
     </div>
+
+    <div class="card my-4">
+      <h5 class="card-header">カテゴリ</h5>
+      <div class="card-body">
+        <div class="row">
+          {% for category in category_data %}
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li>
+                <a href="{% url 'category' category %}">
+                  {{ category.name }}
+                </a>
+              </li>
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
